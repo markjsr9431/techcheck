@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, LayoutGrid } from "lucide-react";
 import { DiagnosticConsole } from "@/components/home/diagnostic-console";
 
@@ -16,20 +17,20 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#categorias"
+            <Link
+              href="/diagnostico"
               className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-accent-foreground shadow-subtle transition-colors hover:bg-accent/90"
             >
               Comenzar diagnóstico
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="#categorias"
               className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-surface px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-muted/40"
             >
               <LayoutGrid className="h-4 w-4" aria-hidden="true" />
               Explorar categorías
-            </a>
+            </Link>
           </div>
         </div>
 
