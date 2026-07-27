@@ -7,11 +7,20 @@ import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { PcLentaFlow } from "@/components/diagnostico/pc-lenta-flow";
 
 const OPTIONS = ["PC lenta", "No enciende", "Sin Internet", "Pantalla negra", "Otro"] as const;
 
+type Step = "bienvenida" | "pregunta-1" | "pc-lenta";
+
 export default function DiagnosticoPage() {
-  const [step, setStep] = useState<"bienvenida" | "pregunta-1">("bienvenida");
+  const [step, setStep] = useState<Step>("bienvenida");
+
+  function selectProblem(option: (typeof OPTIONS)[number]) {
+    if (option === "PC lenta") {
+      setStep("pc-lenta");
+    }
+  }
 
   return (
     <>
@@ -19,7 +28,7 @@ export default function DiagnosticoPage() {
       <main>
         <Section>
           <Container className="max-w-2xl">
-            {step === "bienvenida" ? (
+            {step === "bienvenida" && (
               <div className="text-center">
                 <h1 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
                   Diagnóstico de tu computador
@@ -35,7 +44,9 @@ export default function DiagnosticoPage() {
                   </Button>
                 </div>
               </div>
-            ) : (
+            )}
+
+            {step === "pregunta-1" && (
               <div>
                 <h1 className="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
                   ¿Cuál es el problema principal?
@@ -45,6 +56,14 @@ export default function DiagnosticoPage() {
                   {OPTIONS.map((option) => (
                     <Card
                       key={option}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => selectProblem(option)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          selectProblem(option);
+                        }
+                      }}
                       className="cursor-pointer text-left text-[15px] font-medium text-foreground transition-colors hover:border-muted/40"
                     >
                       {option}
@@ -53,6 +72,8 @@ export default function DiagnosticoPage() {
                 </div>
               </div>
             )}
+
+            {step === "pc-lenta" && <PcLentaFlow />}
           </Container>
         </Section>
       </main>
