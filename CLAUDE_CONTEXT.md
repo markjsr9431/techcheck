@@ -4,7 +4,7 @@
 Proyecto inicial.
 
 ## Sprint actual
-Sprint 1
+Sprint 2
 
 ## Completado
 - Arquitectura base.
@@ -14,16 +14,16 @@ Sprint 1
 - Footer.
 - Proyecto en GitHub.
 - Despliegue preparado para Vercel.
+- Design System (Button, Card, Badge, Section, Container) en components/ui.
 
 ## Pendiente
-- Design System.
-- Componentes UI.
+- Integrar componentes del Design System en Home (no realizado en esta tarea).
 - Sistema de diagnósticos.
 - Navegación.
 - PWA.
 
 ## Última tarea
-Se creó ROADMAP.md.
+Se creó el Design System: components/ui/button.tsx, card.tsx, badge.tsx, section.tsx, container.tsx. Replican exactamente los estilos ya usados en Hero, Categories, HowItWorks y Footer. No se modificó Home ni navegación.
 
 ## Próxima tarea
-Sprint 2: Design System.
+Sprint 3: Diagnóstico PC lenta.
