@@ -8,10 +8,11 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { PcLentaFlow } from "@/components/diagnostico/pc-lenta-flow";
+import { NoEnciendeFlow } from "@/components/diagnostico/no-enciende-flow";
 
 const OPTIONS = ["PC lenta", "No enciende", "Sin Internet", "Pantalla negra", "Otro"] as const;
 
-type Step = "bienvenida" | "pregunta-1" | "pc-lenta";
+type Step = "bienvenida" | "pregunta-1" | "pc-lenta" | "no-enciende";
 
 export default function DiagnosticoPage() {
   const [step, setStep] = useState<Step>("bienvenida");
@@ -19,6 +20,8 @@ export default function DiagnosticoPage() {
   function selectProblem(option: (typeof OPTIONS)[number]) {
     if (option === "PC lenta") {
       setStep("pc-lenta");
+    } else if (option === "No enciende") {
+      setStep("no-enciende");
     }
   }
 
@@ -75,6 +78,10 @@ export default function DiagnosticoPage() {
 
             {step === "pc-lenta" && (
               <PcLentaFlow onExitFirstQuestion={() => setStep("pregunta-1")} />
+            )}
+
+            {step === "no-enciende" && (
+              <NoEnciendeFlow onExitFirstQuestion={() => setStep("pregunta-1")} />
             )}
           </Container>
         </Section>
