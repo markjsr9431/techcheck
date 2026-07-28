@@ -111,6 +111,7 @@ function getDiagnosisResult(answers: Answers): DiagnosisResult {
 
 interface PcLentaFlowProps {
   onFinish?: () => void;
+  onExitFirstQuestion?: () => void;
 }
 
 /**
@@ -120,7 +121,7 @@ interface PcLentaFlowProps {
  * finalizar, muestra una pantalla de resultado calculada con
  * reglas fijas (sin IA, sin base de datos, sin persistencia).
  */
-export function PcLentaFlow({ onFinish }: PcLentaFlowProps) {
+export function PcLentaFlow({ onFinish, onExitFirstQuestion }: PcLentaFlowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [showResult, setShowResult] = useState(false);
@@ -143,6 +144,8 @@ export function PcLentaFlow({ onFinish }: PcLentaFlowProps) {
   function goBack() {
     if (!isFirst) {
       setCurrentIndex((prev) => prev - 1);
+    } else {
+      onExitFirstQuestion?.();
     }
   }
 
@@ -265,7 +268,6 @@ export function PcLentaFlow({ onFinish }: PcLentaFlowProps) {
         <Button
           variant="secondary"
           onClick={goBack}
-          disabled={isFirst}
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Atrás

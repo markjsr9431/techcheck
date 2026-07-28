@@ -73,7 +73,9 @@ export default function DiagnosticoPage() {
               </div>
             )}
 
-            {step === "pc-lenta" && <PcLentaFlow />}
+            {step === "pc-lenta" && (
+              <PcLentaFlow onExitFirstQuestion={() => setStep("pregunta-1")} />
+            )}
           </Container>
         </Section>
       </main>

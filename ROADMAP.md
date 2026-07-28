@@ -4,7 +4,7 @@
 - Arquitectura
 - Home
 
-## Sprint 2
+## Sprint 2 ✅
 - Design System
 - Componentes UI
 
@@ -18,7 +18,7 @@
 - Diagnóstico: Sin Internet
 
 ## Sprint 6
-- Navegación
+- Sistema de navegación y UX
 
 ## Sprint 7
 - Exportar PDF
@@ -31,3 +31,8 @@
 
 ## Sprint 10
 - Optimización final
+
+## Mejoras de interfaz
+- Implementar modo claro/oscuro.
+- Persistir la preferencia del usuario.
+- Añadir transición suave entre cambios de tema.
