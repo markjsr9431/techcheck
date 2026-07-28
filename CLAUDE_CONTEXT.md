@@ -4,7 +4,7 @@
 En desarrollo.
 
 ## Tarea actual
-Diagnóstico: PC lenta
+Diagnóstico: No enciende
 
 ## Completado
 - Arquitectura base.
@@ -15,17 +15,18 @@ Diagnóstico: PC lenta
 - Proyecto en GitHub.
 - Despliegue preparado para Vercel.
 - Design System (Button, Card, Badge, Section, Container) en components/ui.
-- Flujo inicial de navegación del diagnóstico: Home → /diagnostico (bienvenida) → primera pregunta con 5 opciones. Sin lógica, sin base de datos, sin historial.
+- Flujo inicial de navegación del diagnóstico: Home → /diagnostico (bienvenida) → primera pregunta con 5 opciones.
+- Diagnóstico "PC lenta" completo: 4 preguntas con progreso y Atrás/Siguiente, pantalla de resultado (causa principal, nivel de gravedad Bajo/Medio/Alto, recomendaciones según respuestas) y botones "Volver al inicio" / "Realizar nuevamente el diagnóstico". Sin IA, sin base de datos, sin PDF, sin historial.
 
 ## Pendiente
 - Integrar componentes del Design System en Home (no realizado en esta tarea).
-- Lógica del diagnóstico (evaluar opciones, ramificar preguntas).
-- Diagnóstico: PC lenta (Sprint 3).
+- Diagnóstico: No enciende (Sprint 4).
+- Diagnósticos: Sin Internet, Pantalla negra, Otro (sin implementar).
 - Navegación completa (Sprint 6).
 - PWA.
 
 ## Última tarea
-Se conectó el botón principal del Hero ("Comenzar diagnóstico") a /diagnostico usando next/link, sin alterar su estilo. Se creó app/diagnostico/page.tsx con dos pantallas controladas por estado local: bienvenida (título, descripción, botón "Iniciar diagnóstico") y primera pregunta "¿Cuál es el problema principal?" con las opciones PC lenta, No enciende, Sin Internet, Pantalla negra, Otro. Reutiliza Header, Section, Container, Button y Card del Design System. No se implementó lógica de diagnóstico ni persistencia.
+Se completó components/diagnostico/pc-lenta-flow.tsx con la pantalla de resultado: función interna getDiagnosisResult (reglas fijas, sin IA) que deriva causa principal, nivel de gravedad (Bajo/Medio/Alto) y una lista de recomendaciones (liberar espacio en disco, desinstalar programas innecesarios, revisar programas de inicio, ejecutar antivirus, revisar estado del disco, reiniciar el equipo, actualizar Windows) a partir de las respuestas guardadas. Se agregaron los botones "Volver al inicio" (enlace a la Home del sitio) y "Realizar nuevamente el diagnóstico" (reinicia el flujo de preguntas). No se tocaron las preguntas existentes ni la navegación previa de app/diagnostico/page.tsx. No se implementó IA, base de datos, PDF ni historial.
 
 ## Próxima tarea
-Implementar el cálculo y la pantalla de resultado del diagnóstico "PC lenta".
+Diagnóstico: No enciende.
