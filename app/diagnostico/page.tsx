@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Home as HomeIcon, ChevronRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
@@ -23,6 +24,16 @@ type Step =
   | "sin-internet"
   | "pantalla-negra"
   | "otro";
+
+const STEP_LABELS: Record<Step, string> = {
+  bienvenida: "Inicio del diagnóstico",
+  "pregunta-1": "Selección de problema",
+  "pc-lenta": "PC lenta",
+  "no-enciende": "No enciende",
+  "sin-internet": "Sin Internet",
+  "pantalla-negra": "Pantalla negra",
+  otro: "Otro",
+};
 
 export default function DiagnosticoPage() {
   const [step, setStep] = useState<Step>("bienvenida");
@@ -47,6 +58,55 @@ export default function DiagnosticoPage() {
       <main>
         <Section>
           <Container className="max-w-2xl">
+            <nav
+              aria-label="Ruta de navegación"
+              className="mb-6 flex flex-wrap items-center gap-1.5 text-xs text-muted"
+            >
+              <Link
+                href="/"
+                className="inline-flex items-center gap-1 rounded-md px-1.5 py-1 transition-colors hover:text-foreground"
+              >
+                <HomeIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                Inicio
+              </Link>
+              <ChevronRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+              {step === "bienvenida" ? (
+                <span className="font-medium text-foreground">Diagnóstico</span>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setStep("bienvenida")}
+                  className="rounded-md px-1.5 py-1 transition-colors hover:text-foreground"
+                >
+                  Diagnóstico
+                </button>
+              )}
+              {step !== "bienvenida" && step !== "pregunta-1" && (
+                <>
+                  <ChevronRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  <button
+                    type="button"
+                    onClick={() => setStep("pregunta-1")}
+                    className="rounded-md px-1.5 py-1 transition-colors hover:text-foreground"
+                  >
+                    Selección de problema
+                  </button>
+                  <ChevronRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  <span className="font-medium text-foreground">
+                    {STEP_LABELS[step]}
+                  </span>
+                </>
+              )}
+              {step === "pregunta-1" && (
+                <>
+                  <ChevronRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  <span className="font-medium text-foreground">
+                    {STEP_LABELS[step]}
+                  </span>
+                </>
+              )}
+            </nav>
+
             {step === "bienvenida" && (
               <div className="text-center">
                 <h1 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
