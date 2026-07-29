@@ -8,28 +8,34 @@
 - Design System
 - Componentes UI
 
-## Sprint 3
+## Sprint 3 ✅
 - Diagnóstico: PC lenta
 
-## Sprint 4
+## Sprint 4 ✅
 - Diagnóstico: No enciende
 
-## Sprint 5
+## Sprint 5 ✅
 - Diagnóstico: Sin Internet
 
-## Sprint 6
-- Sistema de navegación y UX
+## Sprint 6 ✅
+- Diagnóstico: Pantalla negra
 
 ## Sprint 7
-- Exportar PDF
+- Diagnóstico: Otro
 
 ## Sprint 8
-- SEO
+- Sistema de navegación y UX
 
 ## Sprint 9
-- PWA
+- Exportar PDF
 
 ## Sprint 10
+- SEO
+
+## Sprint 11
+- PWA
+
+## Sprint 12
 - Optimización final
 
 ## Mejoras de interfaz
