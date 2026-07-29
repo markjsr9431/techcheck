@@ -11,6 +11,7 @@ import { PcLentaFlow } from "@/components/diagnostico/pc-lenta-flow";
 import { NoEnciendeFlow } from "@/components/diagnostico/no-enciende-flow";
 import { SinInternetFlow } from "@/components/diagnostico/sin-internet-flow";
 import { PantallaNegraFlow } from "@/components/diagnostico/pantalla-negra-flow";
+import { OtroFlow } from "@/components/diagnostico/otro-flow";
 
 const OPTIONS = ["PC lenta", "No enciende", "Sin Internet", "Pantalla negra", "Otro"] as const;
 
@@ -20,7 +21,8 @@ type Step =
   | "pc-lenta"
   | "no-enciende"
   | "sin-internet"
-  | "pantalla-negra";
+  | "pantalla-negra"
+  | "otro";
 
 export default function DiagnosticoPage() {
   const [step, setStep] = useState<Step>("bienvenida");
@@ -34,6 +36,8 @@ export default function DiagnosticoPage() {
       setStep("sin-internet");
     } else if (option === "Pantalla negra") {
       setStep("pantalla-negra");
+    } else if (option === "Otro") {
+      setStep("otro");
     }
   }
 
@@ -102,6 +106,10 @@ export default function DiagnosticoPage() {
 
             {step === "pantalla-negra" && (
               <PantallaNegraFlow onExitFirstQuestion={() => setStep("pregunta-1")} />
+            )}
+
+            {step === "otro" && (
+              <OtroFlow onExitFirstQuestion={() => setStep("pregunta-1")} />
             )}
           </Container>
         </Section>
