@@ -20,13 +20,13 @@
 ## Sprint 6 ✅
 - Diagnóstico: Pantalla negra
 
-## Sprint 7
+## Sprint 7 ✅
 - Diagnóstico: Otro
 
-## Sprint 8
+## Sprint 8 ✅
 - Sistema de navegación y UX
 
-## Sprint 9
+## Sprint 9 ✅
 - Exportar PDF
 
 ## Sprint 10
