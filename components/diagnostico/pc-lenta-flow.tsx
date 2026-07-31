@@ -217,6 +217,7 @@ export function PcLentaFlow({ onFinish, onExitFirstQuestion }: PcLentaFlowProps)
             key={option}
             role="button"
             tabIndex={0}
+            aria-pressed={selected === option}
             onClick={() => selectOption(option)}
             onKeyDown={(event) => {
               if (event.key === "Enter" || event.key === " ") {

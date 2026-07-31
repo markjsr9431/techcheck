@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Terminal } from "lucide-react";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
+
 
 export function Header() {
   return (
@@ -22,7 +22,6 @@ export function Header() {
           >
             Acerca de
           </Link>
-          <ThemeToggle />
         </nav>
       </div>
     </header>

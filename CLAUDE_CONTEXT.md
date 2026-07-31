@@ -6,7 +6,7 @@ En desarrollo.
 
 ## Tarea actual
 
-PWA (Sprint 11) — completado.
+Optimización final (Sprint 12) — completado.
 
 ## Completado
 
@@ -16,18 +16,17 @@ PWA (Sprint 11) — completado.
 - Capa de abstracción `DiagnosticResult` compartida entre diagnósticos.
 - Exportar PDF del resultado del diagnóstico.
 - SEO (Sprint 10): metadata, Open Graph, Twitter, canonical, robots.txt y sitemap.xml.
-- PWA (Sprint 11): `manifest.webmanifest` (name, short_name, display standalone, theme/background acordes al tema oscuro), íconos 192/512, viewport con themeColor y enlace al manifest en el layout raíz. Sin service worker, sin caché offline, sin next-pwa.
+- PWA (Sprint 11): manifest.webmanifest, íconos, viewport/themeColor, instalación standalone.
+- Optimización final (Sprint 12): revisión de lint/TypeScript (sin advertencias), accesibilidad mejorada (`aria-pressed` en las opciones seleccionables de los 5 diagnósticos) y eliminación de un `export {}` redundante en `lib/types.ts`. Sin nuevas funcionalidades, sin cambios visuales ni de arquitectura.
 
 ## Pendiente
 
 - Integrar componentes del Design System en Home.
-- Modo claro/oscuro con persistencia.
-- Optimización final (Sprint 12).
 
 ## Última tarea
 
-PWA (Sprint 11): manifest.webmanifest, íconos placeholder, viewport/themeColor y enlace al manifest en app/layout.tsx. Instalable como app standalone; sin service worker ni caché offline.
+Optimización final (Sprint 12): `aria-pressed` en tarjetas seleccionables de los flujos de diagnóstico y limpieza de código muerto menor. Build, lint y `tsc --noEmit` verificados sin errores.
 
 ## Próxima tarea
 
-Optimización final (Sprint 12).
+Sin tareas pendientes en el ROADMAP; quedan las "Mejoras de interfaz" (modo claro/oscuro) sin sprint asignado.

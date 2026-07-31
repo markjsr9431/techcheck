@@ -51,5 +51,3 @@ export interface DiagnosticResult {
   /** Momento en que se generó el resultado. */
   generatedAt: Date;
 }
-
-export {};
