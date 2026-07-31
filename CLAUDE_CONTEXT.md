@@ -31,4 +31,4 @@ CTA de contacto con técnico especializado en resultado de diagnóstico. Build v
 
 ## Próxima tarea
 
-Sin tareas pendientes en el ROADMAP; quedan las "Mejoras de interfaz" (modo claro/oscuro) sin sprint asignado.
+Sin tareas pendientes en el ROADMAP.
