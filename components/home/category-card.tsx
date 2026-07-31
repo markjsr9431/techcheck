@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 
 interface CategoryCardProps {
   icon: LucideIcon;
@@ -20,9 +21,9 @@ interface CategoryCardProps {
 export function CategoryCard({ icon: Icon, title, description, available }: CategoryCardProps) {
   const content = (
     <>
-      <span className="flex h-10 w-10 items-center justify-center rounded-md bg-accent/10 text-accent transition-colors duration-200 group-hover:bg-accent/15">
+      <Badge className="transition-colors duration-200 group-hover:bg-accent/15">
         <Icon className="h-5 w-5" aria-hidden="true" />
-      </span>
+      </Badge>
       <h3 className="mt-4 text-[15px] font-medium text-foreground">{title}</h3>
       <p className="mt-1.5 text-sm leading-relaxed text-muted">{description}</p>
       {!available && (

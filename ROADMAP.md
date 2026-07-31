@@ -38,15 +38,15 @@
 
 - Exportar PDF
 
-## Sprint 10
+## Sprint 10 ✅
 
 - SEO
 
-## Sprint 11
+## Sprint 11 ✅
 
 - PWA
 
-## Sprint 12
+## Sprint 12 ✅
 
 - Optimización final
 
