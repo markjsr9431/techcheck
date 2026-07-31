@@ -6,7 +6,10 @@ import { jsPDF } from "jspdf";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { TechnicianContactCta } from "@/components/diagnostico/technician-contact-cta";
 import type { DiagnosticResult } from "@/lib/types";
+
+const TECHNICIAN_KEYWORD = "técnico especializado";
 
 interface DiagnosticResultViewProps {
   result: DiagnosticResult;
@@ -31,6 +34,10 @@ export function DiagnosticResultView({ result, onRestart }: DiagnosticResultView
     dateStyle: "long",
     timeStyle: "short",
   });
+
+  const needsTechnician = result.recommendations.some((recommendation) =>
+    recommendation.toLowerCase().includes(TECHNICIAN_KEYWORD)
+  );
 
   function handleDownloadPdf() {
     const doc = new jsPDF();
@@ -151,6 +158,12 @@ export function DiagnosticResultView({ result, onRestart }: DiagnosticResultView
           ))}
         </ul>
       </div>
+
+      {needsTechnician && (
+        <div className="mt-6">
+          <TechnicianContactCta />
+        </div>
+      )}
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Link
