@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import type { DiagnosticResult } from "@/lib/types";
+import { DiagnosticResultView } from "@/components/diagnostico/diagnostic-result-view";
 
 type QuestionId = "frecuencia" | "inicio" | "disco" | "antivirus";
 
@@ -109,6 +110,29 @@ function getDiagnosisResult(answers: Answers): DiagnosisResult {
   };
 }
 
+/**
+ * Adapta el resultado interno de este diagnóstico (cause/severity/
+ * recommendations) y las respuestas crudas al contrato compartido
+ * `DiagnosticResult`, que es lo único que conocen la pantalla de
+ * resultado y el futuro exportador de PDF.
+ */
+function toDiagnosticResult(answers: Answers): DiagnosticResult {
+  const result = getDiagnosisResult(answers);
+
+  return {
+    title: "PC lenta",
+    category: "pc-lenta",
+    severity: result.severity,
+    probableCause: result.cause,
+    recommendations: result.recommendations,
+    answers: QUESTIONS.map((q) => ({
+      question: q.title,
+      answer: answers[q.id] ?? "",
+    })),
+    generatedAt: new Date(),
+  };
+}
+
 interface PcLentaFlowProps {
   onFinish?: () => void;
   onExitFirstQuestion?: () => void;
@@ -163,66 +187,11 @@ export function PcLentaFlow({ onFinish, onExitFirstQuestion }: PcLentaFlowProps)
   const selected = answers[question.id];
 
   if (showResult) {
-    const result = getDiagnosisResult(answers);
-
     return (
-      <div>
-        <h1 className="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
-          Resultado del diagnóstico
-        </h1>
-
-        <div className="mt-6 rounded-md border border-border bg-surface p-5">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted">
-            Posible causa principal
-          </p>
-          <p className="mt-1.5 text-[15px] font-medium text-foreground">
-            {result.cause}
-          </p>
-
-          <p className="mt-5 text-xs font-medium uppercase tracking-wide text-muted">
-            Nivel de gravedad
-          </p>
-          <span
-            className={cn(
-              "mt-1.5 inline-flex items-center rounded-md border px-2.5 py-1 text-xs font-medium",
-              result.severity === "Alto" &&
-                "border-accent bg-accent/15 text-accent",
-              result.severity === "Medio" &&
-                "border-accent/60 bg-accent/10 text-accent",
-              result.severity === "Bajo" &&
-                "border-border bg-background text-muted"
-            )}
-          >
-            {result.severity}
-          </span>
-        </div>
-
-        <div className="mt-6">
-          <h2 className="text-[15px] font-medium text-foreground">
-            Recomendaciones
-          </h2>
-          <ul className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {result.recommendations.map((recommendation) => (
-              <Card
-                key={recommendation}
-                className="text-left text-sm text-foreground"
-              >
-                {recommendation}
-              </Card>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-surface px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-muted/40"
-          >
-            Volver al inicio
-          </Link>
-          <Button onClick={handleRestart}>Realizar nuevamente el diagnóstico</Button>
-        </div>
-      </div>
+      <DiagnosticResultView
+        result={toDiagnosticResult(answers)}
+        onRestart={handleRestart}
+      />
     );
   }
 
