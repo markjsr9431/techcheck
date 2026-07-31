@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import "./globals.css";
 
 const SITE_URL = "https://techcheck.vercel.app";
 const SITE_NAME = "TechCheck";
@@ -45,6 +44,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  manifest: "/manifest.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0A0A0B",
 };
 
 export default function RootLayout({
