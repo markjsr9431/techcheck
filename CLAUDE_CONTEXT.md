@@ -6,12 +6,12 @@ En desarrollo.
 
 ## Tarea actual
 
-CTA de contacto con técnico especializado en resultado de diagnóstico — completado.
+Nuevo flujo de diagnóstico "Posible virus" — completado.
 
 ## Completado
 
 - Arquitectura base, Home, Design System.
-- Diagnósticos: PC lenta, No enciende, Sin Internet, Pantalla negra, Otro.
+- Diagnósticos: PC lenta, No enciende, Sin Internet, Pantalla negra, Posible virus, Otro.
 - Sistema de navegación y UX (breadcrumb, estados deshabilitados).
 - Capa de abstracción `DiagnosticResult` compartida entre diagnósticos.
 - Exportar PDF del resultado del diagnóstico.
@@ -23,11 +23,20 @@ CTA de contacto con técnico especializado en resultado de diagnóstico — comp
 
 ## Pendiente
 
-- Mejoras de interfaz (modo claro/oscuro), sin sprint asignado.
+- Sin tareas pendientes.
+
+## IMPORTANTE
+
+Al finalizar la implementación del flujo:
+
+- Habilita automáticamente la categoría correspondiente.
+- Elimina la etiqueta "Próximamente".
+- Conéctala al nuevo flow.
+- Debe comportarse exactamente igual que PC lenta, No enciende, Sin Internet y Pantalla negra.
 
 ## Última tarea
 
-CTA de contacto con técnico especializado en resultado de diagnóstico. Build verificado sin errores.
+Nuevo flujo de diagnóstico "Posible virus": misma arquitectura que los demás diagnósticos (componente de flow con `DiagnosticResult`/`DiagnosticResultView`), integrado en la pantalla de selección. Build verificado sin errores.
 
 ## Próxima tarea
 
