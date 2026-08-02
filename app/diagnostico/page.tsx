@@ -14,8 +14,9 @@ import { SinInternetFlow } from "@/components/diagnostico/sin-internet-flow";
 import { PantallaNegraFlow } from "@/components/diagnostico/pantalla-negra-flow";
 import { OtroFlow } from "@/components/diagnostico/otro-flow";
 import { PosibleVirusFlow } from "@/components/diagnostico/posible-virus-flow";
+import { DiscoDuroFlow } from "@/components/diagnostico/disco-duro-flow";
 
-const OPTIONS = ["PC lenta", "No enciende", "Sin Internet", "Pantalla negra", "Posible virus", "Otro"] as const;
+const OPTIONS = ["PC lenta", "No enciende", "Sin Internet", "Pantalla negra", "Posible virus", "Disco duro", "Otro"] as const;
 
 type Step =
   | "bienvenida"
@@ -25,6 +26,7 @@ type Step =
   | "sin-internet"
   | "pantalla-negra"
   | "posible-virus"
+  | "disco-duro"
   | "otro";
 
 const STEP_LABELS: Record<Step, string> = {
@@ -35,6 +37,7 @@ const STEP_LABELS: Record<Step, string> = {
   "sin-internet": "Sin Internet",
   "pantalla-negra": "Pantalla negra",
   "posible-virus": "Posible virus",
+  "disco-duro": "Disco duro",
   otro: "Otro",
 };
 
@@ -52,6 +55,8 @@ export default function DiagnosticoPage() {
       setStep("pantalla-negra");
     } else if (option === "Posible virus") {
       setStep("posible-virus");
+    } else if (option === "Disco duro") {
+      setStep("disco-duro");
     } else if (option === "Otro") {
       setStep("otro");
     }
@@ -175,6 +180,10 @@ export default function DiagnosticoPage() {
 
             {step === "posible-virus" && (
               <PosibleVirusFlow onExitFirstQuestion={() => setStep("pregunta-1")} />
+            )}
+
+            {step === "disco-duro" && (
+              <DiscoDuroFlow onExitFirstQuestion={() => setStep("pregunta-1")} />
             )}
 
             {step === "otro" && (

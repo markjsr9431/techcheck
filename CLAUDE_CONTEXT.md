@@ -6,12 +6,12 @@ En desarrollo.
 
 ## Tarea actual
 
-Nuevo flujo de diagnóstico "Posible virus" — completado.
+Habilitar categoría "Posible virus" en Home — completado.
 
 ## Completado
 
 - Arquitectura base, Home, Design System.
-- Diagnósticos: PC lenta, No enciende, Sin Internet, Pantalla negra, Posible virus, Otro.
+- Diagnósticos: PC lenta, No enciende, Sin Internet, Pantalla negra, Posible virus, Disco duro, Otro.
 - Sistema de navegación y UX (breadcrumb, estados deshabilitados).
 - Capa de abstracción `DiagnosticResult` compartida entre diagnósticos.
 - Exportar PDF del resultado del diagnóstico.
@@ -36,7 +36,7 @@ Al finalizar la implementación del flujo:
 
 ## Última tarea
 
-Nuevo flujo de diagnóstico "Posible virus": misma arquitectura que los demás diagnósticos (componente de flow con `DiagnosticResult`/`DiagnosticResultView`), integrado en la pantalla de selección. Build verificado sin errores.
+Categoría "Posible virus" habilitada en Home (`available: true`), etiqueta "Próximamente" ya no se muestra para esta categoría. Navega al flow ya implementado. Build verificado sin errores.
 
 ## Próxima tarea
 
