@@ -6,12 +6,12 @@ En desarrollo.
 
 ## Tarea actual
 
-Nuevo flujo de diagnóstico "Pantalla azul" — completado.
+Nuevo flujo de diagnóstico "Sin sonido" — completado.
 
 ## Completado
 
 - Arquitectura base, Home, Design System.
-- Diagnósticos: PC lenta, No enciende, Sin Internet, Pantalla negra, Posible virus, Disco duro, Pantalla azul, Otro.
+- Diagnósticos: PC lenta, No enciende, Sin Internet, Pantalla negra, Posible virus, Disco duro, Pantalla azul, Sin sonido, Otro.
 - Sistema de navegación y UX (breadcrumb, estados deshabilitados).
 - Capa de abstracción `DiagnosticResult` compartida entre diagnósticos.
 - Exportar PDF del resultado del diagnóstico.
@@ -36,7 +36,7 @@ Al finalizar la implementación del flujo:
 
 ## Última tarea
 
-Nuevo flujo de diagnóstico "Pantalla azul": misma arquitectura que los demás diagnósticos (componente de flow con `DiagnosticResult`/`DiagnosticResultView`), integrado en la pantalla de selección. Categoría "Pantalla azul" habilitada en Home (`available: true`), etiqueta "Próximamente" ya no se muestra para esta categoría. Build verificado sin errores.
+Nuevo flujo de diagnóstico "Sin sonido": misma arquitectura que los demás diagnósticos (componente de flow con `DiagnosticResult`/`DiagnosticResultView`), integrado en la pantalla de selección. Categoría "Sin sonido" habilitada en Home (`available: true`), etiqueta "Próximamente" ya no se muestra para esta categoría. Build verificado sin errores.
 
 ## Próxima tarea
 
