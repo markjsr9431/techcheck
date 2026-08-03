@@ -17,8 +17,9 @@ import { PosibleVirusFlow } from "@/components/diagnostico/posible-virus-flow";
 import { DiscoDuroFlow } from "@/components/diagnostico/disco-duro-flow";
 import { PantallaAzulFlow } from "@/components/diagnostico/pantalla-azul-flow";
 import { SinSonidoFlow } from "@/components/diagnostico/sin-sonido-flow";
+import { LaptopNoCargaFlow } from "@/components/diagnostico/laptop-no-carga-flow";
 
-const OPTIONS = ["PC lenta", "No enciende", "Sin Internet", "Pantalla negra", "Posible virus", "Disco duro", "Pantalla azul", "Sin sonido", "Otro"] as const;
+const OPTIONS = ["PC lenta", "No enciende", "Sin Internet", "Pantalla negra", "Posible virus", "Disco duro", "Pantalla azul", "Sin sonido", "Laptop no carga", "Otro"] as const;
 
 type Step =
   | "bienvenida"
@@ -31,6 +32,7 @@ type Step =
   | "disco-duro"
   | "pantalla-azul"
   | "sin-sonido"
+  | "laptop-no-carga"
   | "otro";
 
 const STEP_LABELS: Record<Step, string> = {
@@ -44,6 +46,7 @@ const STEP_LABELS: Record<Step, string> = {
   "disco-duro": "Disco duro",
   "pantalla-azul": "Pantalla azul",
   "sin-sonido": "Sin sonido",
+  "laptop-no-carga": "Laptop no carga",
   otro: "Otro",
 };
 
@@ -67,6 +70,8 @@ export default function DiagnosticoPage() {
       setStep("pantalla-azul");
     } else if (option === "Sin sonido") {
       setStep("sin-sonido");
+    } else if (option === "Laptop no carga") {
+      setStep("laptop-no-carga");
     } else if (option === "Otro") {
       setStep("otro");
     }
@@ -202,6 +207,10 @@ export default function DiagnosticoPage() {
 
             {step === "sin-sonido" && (
               <SinSonidoFlow onExitFirstQuestion={() => setStep("pregunta-1")} />
+            )}
+
+            {step === "laptop-no-carga" && (
+              <LaptopNoCargaFlow onExitFirstQuestion={() => setStep("pregunta-1")} />
             )}
 
             {step === "otro" && (

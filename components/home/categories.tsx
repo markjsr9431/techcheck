@@ -24,7 +24,7 @@ const CATEGORIES = [
   { icon: MonitorX, title: "Pantalla azul", description: "Errores críticos del sistema.", available: true },
   { icon: Printer, title: "Impresoras", description: "Fallos de impresión o conexión.", available: false },
   { icon: VolumeX, title: "Sin sonido", description: "Audio ausente o con fallos.", available: true },
-  { icon: BatteryWarning, title: "Laptop no carga", description: "Problemas de carga o batería.", available: false },
+  { icon: BatteryWarning, title: "Laptop no carga", description: "Problemas de carga o batería.", available: true },
 ] as const;
 
 export function Categories() {
