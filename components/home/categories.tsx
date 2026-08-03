@@ -21,7 +21,7 @@ const CATEGORIES = [
   { icon: MonitorOff, title: "Pantalla negra", description: "El equipo enciende pero no hay imagen.", available: true },
   { icon: ShieldAlert, title: "Posible virus", description: "Comportamiento sospechoso del sistema.", available: true },
   { icon: HardDrive, title: "Disco duro", description: "Fallos de almacenamiento o lectura.", available: true },
-  { icon: MonitorX, title: "Pantalla azul", description: "Errores críticos del sistema.", available: false },
+  { icon: MonitorX, title: "Pantalla azul", description: "Errores críticos del sistema.", available: true },
   { icon: Printer, title: "Impresoras", description: "Fallos de impresión o conexión.", available: false },
   { icon: VolumeX, title: "Sin sonido", description: "Audio ausente o con fallos.", available: false },
   { icon: BatteryWarning, title: "Laptop no carga", description: "Problemas de carga o batería.", available: false },

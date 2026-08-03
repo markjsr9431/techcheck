@@ -6,12 +6,12 @@ En desarrollo.
 
 ## Tarea actual
 
-Habilitar categoría "Posible virus" en Home — completado.
+Nuevo flujo de diagnóstico "Pantalla azul" — completado.
 
 ## Completado
 
 - Arquitectura base, Home, Design System.
-- Diagnósticos: PC lenta, No enciende, Sin Internet, Pantalla negra, Posible virus, Disco duro, Otro.
+- Diagnósticos: PC lenta, No enciende, Sin Internet, Pantalla negra, Posible virus, Disco duro, Pantalla azul, Otro.
 - Sistema de navegación y UX (breadcrumb, estados deshabilitados).
 - Capa de abstracción `DiagnosticResult` compartida entre diagnósticos.
 - Exportar PDF del resultado del diagnóstico.
@@ -36,7 +36,7 @@ Al finalizar la implementación del flujo:
 
 ## Última tarea
 
-Categoría "Posible virus" habilitada en Home (`available: true`), etiqueta "Próximamente" ya no se muestra para esta categoría. Navega al flow ya implementado. Build verificado sin errores.
+Nuevo flujo de diagnóstico "Pantalla azul": misma arquitectura que los demás diagnósticos (componente de flow con `DiagnosticResult`/`DiagnosticResultView`), integrado en la pantalla de selección. Categoría "Pantalla azul" habilitada en Home (`available: true`), etiqueta "Próximamente" ya no se muestra para esta categoría. Build verificado sin errores.
 
 ## Próxima tarea
 
